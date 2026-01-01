@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Haunted Loop | ByteClaw Games</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
+
     <style>
         /* INHERITED THEME */
         :root {
@@ -12,15 +17,19 @@
             --text-dim: #a0a0a0;
             --accent-cyan: #00f3ff;
             --accent-magenta: #ff0055;
-            /* NEW PURPLE ACCENT */
             --accent-purple: #9d00ff; 
             --card-bg: #111;
+
+            /* FONT VARIABLES */
+            --font-display: 'Orbitron', sans-serif;
+            --font-body: 'Rajdhani', sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: var(--font-body); /* Main Text Font */
+            font-size: 1.1rem;
             margin: 0;
             line-height: 1.6;
         }
@@ -28,7 +37,7 @@
         /* NAVIGATION */
         nav {
             padding: 20px;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.9);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -39,21 +48,24 @@
         }
 
         .nav-brand {
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
+            font-family: var(--font-display);
+            font-weight: 700;
             color: #fff;
             text-decoration: none;
             font-size: 1.2rem;
+            letter-spacing: 1px;
         }
 
         .nav-back {
             color: var(--accent-cyan);
+            font-family: var(--font-display);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             border: 1px solid var(--accent-cyan);
             padding: 5px 15px;
             border-radius: 4px;
             transition: 0.3s;
+            text-transform: uppercase;
         }
 
         .nav-back:hover {
@@ -62,7 +74,6 @@
         }
 
         /* HERO SECTION */
-        /* Ensure this matches your actual file extension (jpg vs png) */
         .hero {
             background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--bg-color)), url('../images/game_header.jpg');
             background-size: cover;
@@ -86,6 +97,7 @@
         }
 
         h1 {
+            font-family: var(--font-display);
             font-size: 3rem;
             margin: 0;
             text-transform: uppercase;
@@ -96,10 +108,11 @@
 
         .genre-tag {
             color: var(--accent-purple);
-            font-family: 'Courier New', monospace;
+            font-family: var(--font-display);
             font-weight: bold;
             display: block;
             margin-top: 5px;
+            letter-spacing: 1px;
         }
 
         /* CONTENT CONTAINER */
@@ -123,13 +136,21 @@
 
         /* TEXT STYLES */
         h2 {
+            font-family: var(--font-display);
             color: var(--accent-cyan);
             border-left: 4px solid var(--accent-purple);
             padding-left: 15px;
             margin-top: 0;
+            text-transform: uppercase;
+        }
+        
+        h3 {
+             font-family: var(--font-display);
+             color: #fff;
+             margin-top: 30px;
         }
 
-        p { color: var(--text-dim); font-size: 1.1rem; }
+        p { color: var(--text-dim); }
 
         /* FEATURES LIST */
         .features-list {
@@ -155,6 +176,7 @@
             display: block;
             background: linear-gradient(90deg, #1b2838 0%, #2a475e 100%);
             color: white;
+            font-family: var(--font-display);
             text-align: center;
             padding: 20px;
             text-decoration: none;
@@ -163,6 +185,8 @@
             border-radius: 4px;
             margin-top: 20px;
             transition: 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .steam-btn:hover {
@@ -170,9 +194,7 @@
             transform: translateY(-2px);
         }
 
-        /* ============================
-           GALLERY & LIGHTBOX STYLES 
-        ============================ */
+        /* GALLERY & LIGHTBOX */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -184,21 +206,19 @@
             width: 100%;
             height: auto;
             border-radius: 4px;
-            border: 2px solid transparent; /* Start transparent so the change isn't jumpy */
+            border: 2px solid transparent;
             transition: all 0.3s;
-            cursor: pointer; /* Makes it look clickable */
+            cursor: pointer;
         }
 
         .gallery-img:hover {
             transform: scale(1.02);
-            /* CHANGE: Changed from magenta to the new purple variable */
             border-color: var(--accent-purple);
-            box-shadow: 0 0 15px rgba(157, 0, 255, 0.3); /* Adds a nice purple glow */
+            box-shadow: 0 0 15px rgba(157, 0, 255, 0.3);
         }
 
-        /* Lightbox Overlay (The dark background) */
         #lightbox-overlay {
-            display: none; /* Hidden by default */
+            display: none;
             position: fixed;
             z-index: 1000;
             left: 0;
@@ -206,13 +226,12 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.95); /* Very dark dimming */
+            background-color: rgba(0,0,0,0.95);
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
 
-        /* The Enlarged Image itself */
         #lightbox-image {
             max-width: 90%;
             max-height: 80vh;
@@ -220,7 +239,6 @@
             box-shadow: 0 0 30px rgba(157, 0, 255, 0.2);
         }
 
-        /* Navigation Arrows (Left/Right) */
         .lightbox-nav {
             cursor: pointer;
             position: absolute;
@@ -233,13 +251,13 @@
             font-size: 3rem;
             transition: 0.3s;
             user-select: none;
+            font-family: var(--font-display);
         }
 
         .lightbox-nav:hover { color: var(--accent-cyan); }
         .nav-prev { left: 20px; }
         .nav-next { right: 20px; }
 
-        /* The Close Button at the bottom */
         #lightbox-close-btn {
             margin-top: 20px;
             padding: 10px 30px;
@@ -249,8 +267,9 @@
             font-size: 1rem;
             cursor: pointer;
             transition: 0.3s;
-            font-family: 'Courier New', monospace;
+            font-family: var(--font-display);
             font-weight: bold;
+            text-transform: uppercase;
         }
 
         #lightbox-close-btn:hover {
@@ -293,7 +312,7 @@
                 <ul class="features-list">
                     <li><strong>Co-op Madness:</strong> Work together to spot anomalies, or succumb to paranoia alone.</li>
                     <li><strong>SCP-Inspired Entities:</strong> Face off against complex AI bosses like the shadow-manipulating SCP-122.</li>
-					<li><strong>Magic And Fantasy:</strong> SCP not your idea of fun? Don't worry, there's magic, fantasy, and weird... all included.</li>
+                    <li><strong>Magic And Fantasy:</strong> SCP not your idea of fun? Don't worry, there's magic, fantasy, and weird... all included.</li>
                     <li><strong>Swapping Reality:</strong> The environment changes with every loop. Trust nothing.</li>
                     <li><strong>Unreal Engine 5:</strong> Hyper-realistic lighting and atmosphere that gets under your skin.</li>
                 </ul>
@@ -325,7 +344,7 @@
 
     </div>
 
-    <footer style="text-align: center; padding: 40px; color: #666; font-size: 0.8rem;">
+    <footer style="text-align: center; padding: 40px; color: #666; font-size: 0.8rem; font-family: var(--font-display);">
         &copy; 2026 ByteClaw Games. All Rights Reserved.
     </footer>
 
@@ -339,52 +358,38 @@
     </div>
 
     <script>
-        // 1. Get all the images in the gallery grid
         const galleryImages = document.querySelectorAll('.gallery-img');
-        
-        // 2. Get lightbox elements
         const lightboxOverlay = document.getElementById('lightbox-overlay');
         const lightboxImage = document.getElementById('lightbox-image');
         
-        let currentIndex = 0; // Tracks which image we are viewing
+        let currentIndex = 0; 
 
-        // Function to open the lightbox
         function openLightbox(index) {
             currentIndex = index;
-            // Set the lightbox image source to the clicked image source
             lightboxImage.src = galleryImages[currentIndex].src;
-            // Show the overlay using flexbox to center things
             lightboxOverlay.style.display = 'flex';
         }
 
-        // Function to close the lightbox
         function closeLightbox() {
             lightboxOverlay.style.display = 'none';
         }
 
-        // Function to navigate (next/previous)
         function changeSlide(direction) {
             currentIndex += direction;
-
-            // Wrap around logic (if at end go to start, etc.)
             if (currentIndex >= galleryImages.length) {
                 currentIndex = 0;
             } else if (currentIndex < 0) {
                 currentIndex = galleryImages.length - 1;
             }
-
-            // Update the image source
             lightboxImage.src = galleryImages[currentIndex].src;
         }
 
-        // Attach click event listeners to all gallery images
         galleryImages.forEach((img, index) => {
             img.addEventListener('click', () => {
                 openLightbox(index);
             });
         });
 
-        // Optional: Close lightbox if clicking outside the image (on the dark background)
         lightboxOverlay.addEventListener('click', (e) => {
             if (e.target === lightboxOverlay) {
                 closeLightbox();

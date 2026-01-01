@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | ByteClaw Games</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --bg-color: #050505;
@@ -11,12 +16,17 @@
             --accent-cyan: #00f3ff;
             --accent-magenta: #ff0055;
             --card-bg: #111;
+
+            /* FONT VARIABLES */
+            --font-display: 'Orbitron', sans-serif;
+            --font-body: 'Rajdhani', sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: var(--font-body); /* Main Text */
+            font-size: 1.1rem;
             margin: 0;
             line-height: 1.6;
         }
@@ -32,21 +42,24 @@
         }
 
         .nav-brand {
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
+            font-family: var(--font-display);
+            font-weight: 700;
             color: #fff;
             text-decoration: none;
             font-size: 1.2rem;
+            letter-spacing: 1px;
         }
 
         .nav-back {
             color: var(--accent-cyan);
+            font-family: var(--font-display);
             text-decoration: none;
             font-size: 0.9rem;
             border: 1px solid var(--accent-cyan);
             padding: 5px 15px;
             border-radius: 4px;
             transition: 0.3s;
+            text-transform: uppercase;
         }
 
         .nav-back:hover {
@@ -72,14 +85,13 @@
         .avatar-frame {
             position: relative;
             width: 250px;
-            /* Height removed so it scales automatically with the image */
             flex-shrink: 0;
         }
 
         .avatar-img {
             width: 100%;
             height: auto;
-            border-radius: 4px; /* Square with tiny rounded corners */
+            border-radius: 4px; 
             border: 3px solid var(--accent-cyan);
             box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
         }
@@ -87,16 +99,19 @@
         /* BIO TEXT */
         .bio-content h1 {
             color: var(--accent-magenta);
+            font-family: var(--font-display);
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-top: 0;
+            font-weight: 900;
         }
 
         .bio-content h2 {
             font-size: 1.2rem;
             color: var(--accent-cyan);
             margin-bottom: 20px;
-            font-family: 'Courier New', monospace;
+            font-family: var(--font-display);
+            letter-spacing: 1px;
         }
 
         .social-links {
@@ -107,12 +122,15 @@
             display: inline-block;
             margin-right: 15px;
             color: #fff;
+            font-family: var(--font-display);
             text-decoration: none;
             background: #222;
             padding: 8px 16px;
             border-radius: 4px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .social-btn:hover {
@@ -125,6 +143,7 @@
             margin-top: 100px;
             color: #666;
             font-size: 0.8rem;
+            font-family: var(--font-display);
         }
     </style>
 </head>
@@ -145,7 +164,7 @@
             <h2>Cougarkillz | Solo Developer</h2>
             <p>
                 I am a self-taught software engineer with a passion for the unsettling. 
-				After seeing and playing many horror anomaly games, I decided it was time to put my skills to use.
+                After seeing and playing many horror anomaly games, I decided it was time to put my skills to use.
                 ByteClaw Games is a one-person studio dedicated to creating multiplayer horror experiences 
                 that test your sanity and your friendships.
             </p>

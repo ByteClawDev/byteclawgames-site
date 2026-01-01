@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ByteClaw Games</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
+
     <style>
         /* CORE THEME */
         :root {
@@ -12,12 +17,17 @@
             --accent-cyan: #00f3ff;
             --accent-magenta: #ff0055;
             --card-bg: #161616;
+            
+            /* FONT VARIABLES */
+            --font-display: 'Orbitron', sans-serif; /* Headers */
+            --font-body: 'Rajdhani', sans-serif;    /* Text */
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Courier New', Courier, monospace;
+            font-family: var(--font-body);
+            font-weight: 500;
             margin: 0;
             display: flex;
             flex-direction: column;
@@ -25,7 +35,7 @@
             justify-content: center;
             min-height: 100vh;
             text-align: center;
-            position: relative; /* Needed for the absolute positioning of the header */
+            position: relative;
         }
 
         /* HEADER NAVIGATION */
@@ -38,17 +48,18 @@
 
         .header-link {
             text-decoration: none;
-            color: #666; /* Subtle default color */
-            font-weight: bold;
-            font-size: 1rem;
+            color: #666;
+            font-family: var(--font-display); /* Tech Font */
+            font-weight: 700;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             transition: color 0.3s ease, text-shadow 0.3s ease;
         }
 
         .header-link:hover {
             color: var(--accent-cyan);
-            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5); /* Cyan Glow */
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
         }
 
         /* LOGO & BRANDING */
@@ -61,16 +72,20 @@
         }
 
         h1 {
+            font-family: var(--font-display); /* Tech Font */
             font-size: 2.5rem;
             text-transform: uppercase;
-            letter-spacing: 6px;
+            letter-spacing: 4px;
             margin: 0 0 10px 0;
+            font-weight: 900; /* Extra bold */
         }
 
         .tagline {
             color: #888;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 50px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         /* NAVIGATION BUTTONS */
@@ -84,25 +99,28 @@
             padding: 15px 30px;
             border: 2px solid var(--accent-cyan);
             color: var(--accent-cyan);
+            font-family: var(--font-display); /* Tech Font */
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 700;
             font-size: 1.1rem;
             text-transform: uppercase;
             transition: all 0.3s ease;
             min-width: 200px;
+            letter-spacing: 1px;
         }
 
         .btn:hover {
             background-color: var(--accent-cyan);
             color: #000;
-            box-shadow: 0 0 15px var(--accent-cyan);
+            box-shadow: 0 0 20px var(--accent-cyan);
         }
 
         /* FOOTER */
         footer {
             margin-top: 80px;
             color: #444;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
+            font-family: var(--font-display);
         }
         
         .contact-trigger {
@@ -118,8 +136,8 @@
 <body>
 
     <nav>
-    <a href="about/" class="header-link">Meet The Dev</a>
-	</nav>
+        <a href="about/" class="header-link">Meet The Dev</a>
+    </nav>
 
     <img src="images/ByteClawGames.jpg" alt="ByteClaw Games Logo" class="logo-img">
     
@@ -127,8 +145,8 @@
     <p class="tagline">Digitally Primal</p>
 
     <div class="btn-container">
-		<a href="haunted-loop/" class="btn">The Haunted Loop</a>
-	</div>
+        <a href="haunted-loop/" class="btn">The Haunted Loop</a>
+    </div>
 
     <footer>
         <p>&copy; 2026 ByteClaw Games</p>
@@ -137,12 +155,9 @@
 
     <script>
         function revealEmail() {
-            // We break the email into parts so bots can't read "support@byteclawgames.com" in the source code
             const user = "support";
             const domain = "byteclawgames.com";
             const fullEmail = user + "@" + domain;
-            
-            // This is the "Popup"
             alert("Need support? Send us an email at:\n\n" + fullEmail);
         }
     </script>
