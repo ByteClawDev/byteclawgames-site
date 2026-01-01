@@ -25,6 +25,30 @@
             justify-content: center;
             min-height: 100vh;
             text-align: center;
+            position: relative; /* Needed for the absolute positioning of the header */
+        }
+
+        /* HEADER NAVIGATION */
+        nav {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            z-index: 10;
+        }
+
+        .header-link {
+            text-decoration: none;
+            color: #666; /* Subtle default color */
+            font-weight: bold;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .header-link:hover {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5); /* Cyan Glow */
         }
 
         /* LOGO & BRANDING */
@@ -50,6 +74,11 @@
         }
 
         /* NAVIGATION BUTTONS */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+        }
+
         .btn {
             display: inline-block;
             padding: 15px 30px;
@@ -57,10 +86,10 @@
             color: var(--accent-cyan);
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-transform: uppercase;
             transition: all 0.3s ease;
-            margin: 10px;
+            min-width: 200px;
         }
 
         .btn:hover {
@@ -71,33 +100,52 @@
 
         /* FOOTER */
         footer {
-            margin-top: 60px;
+            margin-top: 80px;
             color: #444;
             font-size: 0.8rem;
         }
         
-        .contact-link {
+        .contact-trigger {
             color: #666;
-            text-decoration: none;
+            cursor: pointer;
+            text-decoration: underline;
+            transition: 0.3s;
         }
-        .contact-link:hover { color: var(--accent-magenta); }
+        .contact-trigger:hover { color: var(--accent-cyan); }
+
     </style>
 </head>
 <body>
 
-    <img src="ByteClawGames.png" alt="ByteClaw Games Logo" class="logo-img">
+    <nav>
+        <a href="about.html" class="header-link">Meet The Dev</a>
+    </nav>
+
+    <img src="ByteClawGames.jpg" alt="ByteClaw Games Logo" class="logo-img">
     
     <h1>ByteClaw Games</h1>
     <p class="tagline">Digitally Primal</p>
 
-    <div>
-        <a href="haunted-loop.html" class="btn">Current Project: The Haunted Loop</a>
+    <div class="btn-container">
+        <a href="haunted-loop.html" class="btn">The Haunted Loop</a>
     </div>
 
     <footer>
         <p>&copy; 2026 ByteClaw Games</p>
-        <p><a href="mailto:support@byteclawgames.com" class="contact-link">support@byteclawgames.com</a></p>
+        <p><span class="contact-trigger" onclick="revealEmail()">Contact Support</span></p>
     </footer>
+
+    <script>
+        function revealEmail() {
+            // We break the email into parts so bots can't read "support@byteclawgames.com" in the source code
+            const user = "support";
+            const domain = "byteclawgames.com";
+            const fullEmail = user + "@" + domain;
+            
+            // This is the "Popup"
+            alert("Need support? Send us an email at:\n\n" + fullEmail);
+        }
+    </script>
 
 </body>
 </html>

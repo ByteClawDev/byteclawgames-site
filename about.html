@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | ByteClaw Games</title>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --text-main: #e0e0e0;
+            --accent-cyan: #00f3ff;
+            --accent-magenta: #ff0055;
+            --card-bg: #111;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+        nav {
+            padding: 20px;
+            background: rgba(0,0,0,0.8);
+            border-bottom: 1px solid #222;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .nav-back {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border: 1px solid var(--accent-cyan);
+            padding: 5px 15px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .nav-back:hover {
+            background: var(--accent-cyan);
+            color: #000;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .container { flex-direction: column; text-align: center; }
+        }
+
+        /* AVATAR STYLES */
+        .avatar-frame {
+            position: relative;
+            width: 250px;
+            /* Height removed so it scales automatically with the image */
+            flex-shrink: 0;
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px; /* Square with tiny rounded corners */
+            border: 3px solid var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+        }
+
+        /* BIO TEXT */
+        .bio-content h1 {
+            color: var(--accent-magenta);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0;
+        }
+
+        .bio-content h2 {
+            font-size: 1.2rem;
+            color: var(--accent-cyan);
+            margin-bottom: 20px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .social-links {
+            margin-top: 30px;
+        }
+
+        .social-btn {
+            display: inline-block;
+            margin-right: 15px;
+            color: #fff;
+            text-decoration: none;
+            background: #222;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .social-btn:hover {
+            background: var(--accent-cyan);
+            color: #000;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 100px;
+            color: #666;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-brand">BYTECLAW GAMES</a>
+        <a href="index.html" class="nav-back">&larr; Back to Studio</a>
+    </nav>
+
+    <div class="container">
+        <div class="avatar-frame">
+            <img src="images/avatar.jpg" alt="Cougarkillz" class="avatar-img">
+        </div>
+
+        <div class="bio-content">
+            <h1>Meet the Dev</h1>
+            <h2>Cougarkillz | Solo Developer</h2>
+            <p>
+                I am a self-taught software engineer with a passion for the unsettling. 
+				After seeing and playing many horror anomaly games, I decided it was time to put my skills to use.
+                ByteClaw Games is a one-person studio dedicated to creating multiplayer horror experiences 
+                that test your sanity and your friendships.
+            </p>
+            <p>
+                Currently building <strong>The Haunted Loop</strong> in Unreal Engine 5.
+            </p>
+
+            <div class="social-links">
+                <a href="https://twitter.com/ByteClawGames" target="_blank" class="social-btn">Twitter / X</a>
+                <a href="https://bsky.app/profile/byteclawgames.com" target="_blank" class="social-btn">BlueSky</a>
+                <a href="https://youtube.com/@ByteClawGames" target="_blank" class="social-btn">YouTube</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 ByteClaw Games. Digitally Primal.
+    </footer>
+
+</body>
+</html>
