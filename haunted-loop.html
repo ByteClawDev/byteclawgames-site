@@ -12,13 +12,15 @@
             --text-dim: #a0a0a0;
             --accent-cyan: #00f3ff;
             --accent-magenta: #ff0055;
+            /* NEW PURPLE ACCENT */
+            --accent-purple: #9d00ff; 
             --card-bg: #111;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Cleaner reading font */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             line-height: 1.6;
         }
@@ -60,11 +62,12 @@
         }
 
         /* HERO SECTION */
+        /* Ensure this matches your actual file extension (jpg vs png) */
         .hero {
             background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--bg-color)), url('images/game_header.jpg');
             background-size: cover;
             background-position: center;
-            height: 60vh; /* Takes up 60% of the screen height */
+            height: 60vh;
             display: flex;
             align-items: flex-end;
             justify-content: center;
@@ -92,7 +95,7 @@
         }
 
         .genre-tag {
-            color: var(--accent-magenta);
+            color: var(--accent-purple);
             font-family: 'Courier New', monospace;
             font-weight: bold;
             display: block;
@@ -109,19 +112,19 @@
         /* GRID LAYOUT */
         .split-layout {
             display: grid;
-            grid-template-columns: 2fr 1fr; /* Text takes 2/3, Sidebar takes 1/3 */
+            grid-template-columns: 2fr 1fr;
             gap: 40px;
             margin-bottom: 60px;
         }
 
         @media (max-width: 768px) {
-            .split-layout { grid-template-columns: 1fr; } /* Stack on mobile */
+            .split-layout { grid-template-columns: 1fr; }
         }
 
         /* TEXT STYLES */
         h2 {
             color: var(--accent-cyan);
-            border-left: 4px solid var(--accent-magenta);
+            border-left: 4px solid var(--accent-purple);
             padding-left: 15px;
             margin-top: 0;
         }
@@ -147,31 +150,10 @@
             background: #1a1a1a;
         }
 
-        /* SCREENSHOT GALLERY */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
-            margin-bottom: 60px;
-        }
-
-        .gallery-img {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-            border: 1px solid #333;
-            transition: transform 0.3s;
-        }
-
-        .gallery-img:hover {
-            transform: scale(1.02);
-            border-color: var(--accent-magenta);
-        }
-
         /* CTA BUTTON */
         .steam-btn {
             display: block;
-            background: linear-gradient(90deg, #1b2838 0%, #2a475e 100%); /* Steam Colors */
+            background: linear-gradient(90deg, #1b2838 0%, #2a475e 100%);
             color: white;
             text-align: center;
             padding: 20px;
@@ -186,6 +168,94 @@
         .steam-btn:hover {
             filter: brightness(1.2);
             transform: translateY(-2px);
+        }
+
+        /* ============================
+           GALLERY & LIGHTBOX STYLES 
+        ============================ */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-bottom: 60px;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 2px solid transparent; /* Start transparent so the change isn't jumpy */
+            transition: all 0.3s;
+            cursor: pointer; /* Makes it look clickable */
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.02);
+            /* CHANGE: Changed from magenta to the new purple variable */
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 15px rgba(157, 0, 255, 0.3); /* Adds a nice purple glow */
+        }
+
+        /* Lightbox Overlay (The dark background) */
+        #lightbox-overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.95); /* Very dark dimming */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* The Enlarged Image itself */
+        #lightbox-image {
+            max-width: 90%;
+            max-height: 80vh;
+            border: 2px solid var(--accent-purple);
+            box-shadow: 0 0 30px rgba(157, 0, 255, 0.2);
+        }
+
+        /* Navigation Arrows (Left/Right) */
+        .lightbox-nav {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: var(--text-dim);
+            font-weight: bold;
+            font-size: 3rem;
+            transition: 0.3s;
+            user-select: none;
+        }
+
+        .lightbox-nav:hover { color: var(--accent-cyan); }
+        .nav-prev { left: 20px; }
+        .nav-next { right: 20px; }
+
+        /* The Close Button at the bottom */
+        #lightbox-close-btn {
+            margin-top: 20px;
+            padding: 10px 30px;
+            background: transparent;
+            border: 2px solid var(--text-dim);
+            color: var(--text-dim);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+
+        #lightbox-close-btn:hover {
+            border-color: var(--accent-purple);
+            color: var(--accent-purple);
         }
 
     </style>
@@ -249,7 +319,7 @@
             <img src="images/screen1.jpg" alt="Gameplay Screenshot 1" class="gallery-img">
             <img src="images/screen2.jpg" alt="Gameplay Screenshot 2" class="gallery-img">
             <img src="images/screen3.jpg" alt="Gameplay Screenshot 3" class="gallery-img">
-			<img src="images/screen4.jpg" alt="Gameplay Screenshot 4" class="gallery-img">
+            <img src="images/screen4.jpg" alt="Gameplay Screenshot 4" class="gallery-img">
         </div>
 
     </div>
@@ -257,6 +327,69 @@
     <footer style="text-align: center; padding: 40px; color: #666; font-size: 0.8rem;">
         &copy; 2026 ByteClaw Games. All Rights Reserved.
     </footer>
+
+    <div id="lightbox-overlay">
+        <a class="lightbox-nav nav-prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="lightbox-nav nav-next" onclick="changeSlide(1)">&#10095;</a>
+        
+        <img id="lightbox-image" src="">
+        
+        <button id="lightbox-close-btn" onclick="closeLightbox()">CLOSE</button>
+    </div>
+
+    <script>
+        // 1. Get all the images in the gallery grid
+        const galleryImages = document.querySelectorAll('.gallery-img');
+        
+        // 2. Get lightbox elements
+        const lightboxOverlay = document.getElementById('lightbox-overlay');
+        const lightboxImage = document.getElementById('lightbox-image');
+        
+        let currentIndex = 0; // Tracks which image we are viewing
+
+        // Function to open the lightbox
+        function openLightbox(index) {
+            currentIndex = index;
+            // Set the lightbox image source to the clicked image source
+            lightboxImage.src = galleryImages[currentIndex].src;
+            // Show the overlay using flexbox to center things
+            lightboxOverlay.style.display = 'flex';
+        }
+
+        // Function to close the lightbox
+        function closeLightbox() {
+            lightboxOverlay.style.display = 'none';
+        }
+
+        // Function to navigate (next/previous)
+        function changeSlide(direction) {
+            currentIndex += direction;
+
+            // Wrap around logic (if at end go to start, etc.)
+            if (currentIndex >= galleryImages.length) {
+                currentIndex = 0;
+            } else if (currentIndex < 0) {
+                currentIndex = galleryImages.length - 1;
+            }
+
+            // Update the image source
+            lightboxImage.src = galleryImages[currentIndex].src;
+        }
+
+        // Attach click event listeners to all gallery images
+        galleryImages.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                openLightbox(index);
+            });
+        });
+
+        // Optional: Close lightbox if clicking outside the image (on the dark background)
+        lightboxOverlay.addEventListener('click', (e) => {
+            if (e.target === lightboxOverlay) {
+                closeLightbox();
+            }
+        });
+    </script>
 
 </body>
 </html>
