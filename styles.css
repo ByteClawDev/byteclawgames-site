@@ -13,7 +13,7 @@
     padding: 0 30px;
     z-index: 1000; /* Ensures it stays above all other content */
     box-sizing: border-box;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);/* Add this line right at the bottom of the block! */
 }
 
 /* --- Left Brand Block --- */
@@ -517,7 +517,7 @@ p {
 /* Gallery Grid */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     margin-bottom: 60px;
 }
@@ -805,10 +805,16 @@ p {
         display: none;
     }
 
-    .brand-container, 
-    .center-nav {
-        /* THE FIX: Prevents the phone from shrinking your logos or buttons to make them fit */
+    .brand-container {
         flex-shrink: 0; 
+        border-right: 1px solid rgba(255, 255, 255, 0.2); /* Adds the vertical line */
+        padding-right: 25px; /* Gives the line some breathing room */
+    }
+
+    /* Selects all navigation links EXCEPT the very last one */
+    .center-nav a:not(:last-child) {
+        border-right: 1px solid rgba(255, 255, 255, 0.2); /* Adds the vertical line */
+        padding-right: 25px; 
     }
 
     .center-nav {
