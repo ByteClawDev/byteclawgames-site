@@ -787,34 +787,36 @@ p {
 /* --- Mobile Header Swipe Navigation --- */
 @media (max-width: 800px) {
     .main-header {
-        justify-content: flex-start; /* Aligns everything to the left to start the scroll */
-        overflow-x: auto; /* Enables the horizontal swipe */
+        justify-content: flex-start;
+        overflow-x: auto; 
         overflow-y: hidden;
         padding: 0 20px;
-        gap: 30px; /* Spacing between the logo block and the navigation links */
+        gap: 30px; 
         
-        /* Hides the actual scrollbar visually, but keeps the swipe functionality active */
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
+        /* THE FIX: Force the layout to stay in a straight, un-squished line */
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        
+        -ms-overflow-style: none; 
+        scrollbar-width: none; 
     }
     
-    /* Hides the scrollbar for Chrome, Safari, and Opera */
     .main-header::-webkit-scrollbar {
         display: none;
     }
 
-    /* Forces the elements to maintain their full size so they don't squish */
     .brand-container, 
     .center-nav {
-        flex: 0 0 auto; 
+        /* THE FIX: Prevents the phone from shrinking your logos or buttons to make them fit */
+        flex-shrink: 0; 
     }
 
     .center-nav {
-        gap: 25px; /* Brings the links slightly closer together on phones */
-        padding-right: 20px; /* Adds a little buffer space at the very end of the scroll */
+        gap: 25px; 
+        padding-right: 20px; 
     }
 
     .header-spacer {
-        display: none; /* We don't need the invisible balancing box on mobile */
+        display: none; 
     }
 }
