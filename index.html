@@ -8,159 +8,66 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <style>
-        /* CORE THEME */
-        :root {
-            --bg-color: #0a0a0a;
-            --text-color: #e0e0e0;
-            --accent-cyan: #00f3ff;
-            --accent-magenta: #ff0055;
-            --card-bg: #161616;
-            
-            /* FONT VARIABLES */
-            --font-display: 'Orbitron', sans-serif; /* Headers */
-            --font-body: 'Rajdhani', sans-serif;    /* Text */
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--font-body);
-            font-weight: 500;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            text-align: center;
-            position: relative;
-        }
-
-        /* HEADER NAVIGATION */
-        nav {
-            position: absolute;
-            top: 30px;
-            right: 40px;
-            z-index: 10;
-        }
-
-        .header-link {
-            text-decoration: none;
-            color: #666;
-            font-family: var(--font-display); /* Tech Font */
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
-        }
-
-        .header-link:hover {
-            color: var(--accent-cyan);
-            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
-        }
-
-        /* LOGO & BRANDING */
-        .logo-img {
-            max-width: 350px;
-            width: 80%;
-            border-radius: 4px;
-            box-shadow: 0 0 25px rgba(0, 243, 255, 0.15);
-            margin-bottom: 30px;
-        }
-
-        h1 {
-            font-family: var(--font-display); /* Tech Font */
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin: 0 0 10px 0;
-            font-weight: 900; /* Extra bold */
-        }
-
-        .tagline {
-            color: #888;
-            font-size: 1.2rem;
-            margin-bottom: 50px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        /* NAVIGATION BUTTONS */
-        .btn-container {
-            display: flex;
-            justify-content: center;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            border: 2px solid var(--accent-cyan);
-            color: var(--accent-cyan);
-            font-family: var(--font-display); /* Tech Font */
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            min-width: 200px;
-            letter-spacing: 1px;
-        }
-
-        .btn:hover {
-            background-color: var(--accent-cyan);
-            color: #000;
-            box-shadow: 0 0 20px var(--accent-cyan);
-        }
-
-        /* FOOTER */
-        footer {
-            margin-top: 80px;
-            color: #444;
-            font-size: 0.9rem;
-            font-family: var(--font-display);
-        }
-        
-        .contact-trigger {
-            color: #666;
-            cursor: pointer;
-            text-decoration: underline;
-            transition: 0.3s;
-        }
-        .contact-trigger:hover { color: var(--accent-cyan); }
-
-    </style>
+    
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <nav>
-        <a href="about/" class="header-link">Meet The Dev</a>
-    </nav>
+    <header class="main-header">
+        <div class="brand-container">
+            <a href="index.html" class="brand-link">
+                <img src="images/ByteClawGamesLogo_NoText_256.png" alt="ByteClaw Games Logo" class="header-logo">
+                <span class="brand-text">ByteClaw Games</span>
+            </a>
+        </div>
+        
+        <nav class="center-nav">
+            <a href="haunted-loop/index.html" class="glitch-link">The Haunted Loop</a>
+            <a href="about/index.html" class="glitch-link">About The Studio</a>
+        </nav>
+        
+        <div class="header-spacer"></div>
+    </header>
 
-    <img src="images/ByteClawGames.jpg" alt="ByteClaw Games Logo" class="logo-img">
-    
-    <h1>ByteClaw Games</h1>
-    <p class="tagline">Digitally Primal</p>
+    <main>
+        <section class="hero-section">
+            
+            <div class="background-layer">
+                <img src="images/ByteClawGamesLogo_NoText_2048.png" alt="" class="bg-ghost-logo">
+                <h1 class="bg-tagline">Digitally Primal<sup>&trade;</sup></h1>
+            </div>
 
-    <div class="btn-container">
-        <a href="haunted-loop/" class="btn">The Haunted Loop</a>
-    </div>
+            <div class="tint-layer"></div>
 
-    <footer>
-        <p>&copy; 2026 ByteClaw Games</p>
-        <p><span class="contact-trigger" onclick="revealEmail()">Contact Support</span></p>
+            <div class="foreground-layer">
+                <span class="current-project-label">Current Project</span>
+                
+                <a href="haunted-loop/index.html" class="game-logo-link">
+                    <img src="images/library_logo_1280x720.png" alt="The Haunted Loop" class="game-hero-logo">
+                </a>
+                
+                <a href="https://store.steampowered.com/app/4172940/The_Haunted_Loop/" target="_blank" class="steam-wishlist-btn">
+                    Wishlist on Steam
+                </a>
+            </div>
+
+        </section>
+    </main>
+	
+	<footer class="main-footer">
+        <div class="footer-content">
+            <span class="footer-text">&copy; 2026 ByteClaw Games, LLC. All rights reserved.</span>
+            
+            <span class="footer-divider">|</span>
+            
+            <span class="footer-tagline">Digitally Primal&trade;</span>
+            
+            <span class="footer-divider">|</span>
+            
+            <button class="contact-reveal-btn" onclick="this.innerHTML='support@byteclawgames.com'; this.style.cursor='text'; this.style.color='#00ffff'; this.onclick=null;">
+                Contact Us
+            </button>
+        </div>
     </footer>
-
-    <script>
-        function revealEmail() {
-            const user = "support";
-            const domain = "byteclawgames.com";
-            const fullEmail = user + "@" + domain;
-            alert("Need support? Send us an email at:\n\n" + fullEmail);
-        }
-    </script>
-
 </body>
 </html>

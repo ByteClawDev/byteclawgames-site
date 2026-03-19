@@ -8,345 +8,155 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <style>
-        /* INHERITED THEME */
-        :root {
-            --bg-color: #050505;
-            --text-main: #e0e0e0;
-            --text-dim: #a0a0a0;
-            --accent-cyan: #00f3ff;
-            --accent-magenta: #ff0055;
-            --accent-purple: #9d00ff; 
-            --card-bg: #111;
-
-            /* FONT VARIABLES */
-            --font-display: 'Orbitron', sans-serif;
-            --font-body: 'Rajdhani', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: var(--font-body); /* Main Text Font */
-            font-size: 1.1rem;
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        /* NAVIGATION */
-        nav {
-            padding: 20px;
-            background: rgba(0,0,0,0.9);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid #222;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-brand {
-            font-family: var(--font-display);
-            font-weight: 700;
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-        }
-
-        .nav-back {
-            color: var(--accent-cyan);
-            font-family: var(--font-display);
-            text-decoration: none;
-            font-size: 0.8rem;
-            border: 1px solid var(--accent-cyan);
-            padding: 5px 15px;
-            border-radius: 4px;
-            transition: 0.3s;
-            text-transform: uppercase;
-        }
-
-        .nav-back:hover {
-            background: var(--accent-cyan);
-            color: #000;
-        }
-
-        /* HERO SECTION */
-        .hero {
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--bg-color)), url('../images/game_header.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            padding-bottom: 40px;
-            margin-bottom: 40px;
-            box-shadow: inset 0 -50px 50px var(--bg-color);
-        }
-
-        .hero-content {
-            text-align: center;
-            background: rgba(0,0,0,0.7);
-            padding: 20px 40px;
-            border-radius: 8px;
-            backdrop-filter: blur(5px);
-            border: 1px solid #333;
-        }
-
-        h1 {
-            font-family: var(--font-display);
-            font-size: 3rem;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #fff;
-            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
-        }
-
-        .genre-tag {
-            color: var(--accent-purple);
-            font-family: var(--font-display);
-            font-weight: bold;
-            display: block;
-            margin-top: 5px;
-            letter-spacing: 1px;
-        }
-
-        /* CONTENT CONTAINER */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* GRID LAYOUT */
-        .split-layout {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        @media (max-width: 768px) {
-            .split-layout { grid-template-columns: 1fr; }
-        }
-
-        /* TEXT STYLES */
-        h2 {
-            font-family: var(--font-display);
-            color: var(--accent-cyan);
-            border-left: 4px solid var(--accent-purple);
-            padding-left: 15px;
-            margin-top: 0;
-            text-transform: uppercase;
-        }
-        
-        h3 {
-             font-family: var(--font-display);
-             color: #fff;
-             margin-top: 30px;
-        }
-
-        p { color: var(--text-dim); }
-
-        /* FEATURES LIST */
-        .features-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .features-list li {
-            background: var(--card-bg);
-            margin-bottom: 10px;
-            padding: 15px;
-            border-left: 2px solid #333;
-            transition: 0.2s;
-        }
-
-        .features-list li:hover {
-            border-left: 2px solid var(--accent-cyan);
-            background: #1a1a1a;
-        }
-
-        /* CTA BUTTON */
-        .steam-btn {
-            display: block;
-            background: linear-gradient(90deg, #1b2838 0%, #2a475e 100%);
-            color: white;
-            font-family: var(--font-display);
-            text-align: center;
-            padding: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            border-radius: 4px;
-            margin-top: 20px;
-            transition: 0.2s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .steam-btn:hover {
-            filter: brightness(1.2);
-            transform: translateY(-2px);
-        }
-
-        /* GALLERY & LIGHTBOX */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
-            margin-bottom: 60px;
-        }
-
-        .gallery-img {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-            border: 2px solid transparent;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .gallery-img:hover {
-            transform: scale(1.02);
-            border-color: var(--accent-purple);
-            box-shadow: 0 0 15px rgba(157, 0, 255, 0.3);
-        }
-
-        #lightbox-overlay {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.95);
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #lightbox-image {
-            max-width: 90%;
-            max-height: 80vh;
-            border: 2px solid var(--accent-purple);
-            box-shadow: 0 0 30px rgba(157, 0, 255, 0.2);
-        }
-
-        .lightbox-nav {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -50px;
-            color: var(--text-dim);
-            font-weight: bold;
-            font-size: 3rem;
-            transition: 0.3s;
-            user-select: none;
-            font-family: var(--font-display);
-        }
-
-        .lightbox-nav:hover { color: var(--accent-cyan); }
-        .nav-prev { left: 20px; }
-        .nav-next { right: 20px; }
-
-        #lightbox-close-btn {
-            margin-top: 20px;
-            padding: 10px 30px;
-            background: transparent;
-            border: 2px solid var(--text-dim);
-            color: var(--text-dim);
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.3s;
-            font-family: var(--font-display);
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        #lightbox-close-btn:hover {
-            border-color: var(--accent-purple);
-            color: var(--accent-purple);
-        }
-
-    </style>
+    
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 
-    <nav>
-        <a href="../" class="nav-brand">BYTECLAW GAMES</a>
-        <a href="../" class="nav-back">&larr; Back to Studio</a>
-    </nav>
-
-    <div class="hero">
-        <div class="hero-content">
-            <h1>The Haunted Loop</h1>
-            <span class="genre-tag">Multiplayer Psychological Horror</span>
+    <header class="main-header">
+        <div class="brand-container">
+            <a href="../index.html" class="brand-link">
+                <img src="../images/ByteClawGamesLogo_NoText_256.png" alt="ByteClaw Games Logo" class="header-logo">
+                <span class="brand-text">ByteClaw Games</span>
+            </a>
         </div>
-    </div>
-
-    <div class="container">
         
-        <div class="split-layout">
-            <div class="main-info">
-                <h2>Break the Cycle. Survive the Anomalies.</h2>
-                <p>
-                    <strong>The Haunted Loop</strong> is a psychological horror experience built in Unreal Engine 5. 
-                    You and your friends are trapped in a recursive reality—a loop that changes with every cycle.
-                </p>
-                <p>
-                    Navigating through <strong>7 terrifying chapters</strong>, you must identify over 100+ anomalies, solve puzzles, 
-                    and survive encounters with entities that defy logic. Inspired by the depth of SCP folklore, 
-                    every boss encounter requires more than just firepower—it requires observation and sanity.
-                </p>
+        <nav class="center-nav">
+            <a href="index.html" class="glitch-link" style="color: #00ffff; text-shadow: 0 0 8px rgba(0,255,255,0.5);">The Haunted Loop</a>
+            <a href="../about/index.html" class="glitch-link">About The Studio</a>
+        </nav>
+        
+        <div class="header-spacer"></div>
+    </header>
 
-                <h3>Key Features</h3>
-                <ul class="features-list">
-                    <li><strong>Co-op Madness:</strong> Work together to spot anomalies, or succumb to paranoia alone.</li>
-                    <li><strong>SCP-Inspired Entities:</strong> Face off against complex AI bosses like the shadow-manipulating SCP-122.</li>
-                    <li><strong>Magic And Fantasy:</strong> SCP not your idea of fun? Don't worry, there's magic, fantasy, and weird... all included.</li>
-                    <li><strong>Swapping Reality:</strong> The environment changes with every loop. Trust nothing.</li>
-                    <li><strong>Unreal Engine 5:</strong> Hyper-realistic lighting and atmosphere that gets under your skin.</li>
-                </ul>
+    <main>
+        <section class="game-hero-section">
+            
+            <div class="background-layer">
+                <img src="../images/game_header.jpg" alt="The Haunted Loop Background" class="bg-creepy-zoom">
             </div>
 
-            <div class="sidebar">
-                <div style="background: #111; padding: 20px; border: 1px solid #333;">
-                    <p><strong>Status:</strong> In Development (Chapter 3/7)</p>
-                    <p><strong>Release:</strong> 2026</p>
-                    <p><strong>Platform:</strong> PC (Steam)</p>
-                    <p><strong>Price:</strong> TBA</p>
-                    
-                    <hr style="border: 0; border-top: 1px solid #333; margin: 20px 0;">
-                    
-                    <a href="https://store.steampowered.com/app/4172940/The_Haunted_Loop/" class="steam-btn" target="_blank">
-                        Wishlist on Steam
-                    </a>
+            <div class="tint-layer"></div>
+
+            <div class="foreground-layer game-hero-content">
+                <h1 class="game-title">The Haunted Loop</h1>
+                <span class="genre-tag">Multiplayer Psychological Horror</span>
+            </div>
+            
+        </section>
+
+        <div class="game-container">
+            
+            <div class="split-layout">
+                <div class="main-info">
+                    <h2 class="section-heading">Break the Cycle. Survive the Anomalies.</h2>
+                    <p>
+                        <strong>The Haunted Loop</strong> is a psychological horror experience built in Unreal Engine 5. 
+                        You and your friends are trapped in a recursive reality—a loop that changes with every cycle.
+                    </p>
+                    <p>
+                        Navigating through <strong>7 terrifying chapters</strong>, you must identify over 100+ anomalies, solve puzzles, 
+                        and survive encounters with entities that defy logic. Inspired by the depth of SCP folklore, 
+                        every boss encounter requires more than just firepower—it requires observation and sanity.
+                    </p>
+
+                    <h3 class="sub-heading">Key Features</h3>
+                    <ul class="features-list">
+                        <li><strong>Co-op Madness:</strong> Work together to spot anomalies, or succumb to paranoia alone.</li>
+                        <li><strong>SCP-Inspired Entities:</strong> Face off against complex AI bosses like the shadow-manipulating SCP-122.</li>
+                        <li><strong>Magic And Fantasy:</strong> SCP not your idea of fun? Don't worry, there's magic, fantasy, and weird... all included.</li>
+                        <li><strong>Swapping Reality:</strong> The environment changes with every loop. Trust nothing.</li>
+                        <li><strong>Unreal Engine 5:</strong> Hyper-realistic lighting and atmosphere that gets under your skin.</li>
+                    </ul>
+					
+					<h3 class="sub-heading">System Log: Development Progress</h3>
+                    <div class="dev-tracker">
+                        
+                        <div class="tracker-row">
+                            <div class="chapter-header status-done">Chapter 1</div>
+                            <div class="chapter-data">
+                                <div class="data-line status-done"><span class="mode-tag">REGULAR</span> Anomalies: 10/10 <span class="divider">|</span> Event: &#10003;</div>
+                                <div class="data-line status-planned"><span class="mode-tag">BRUTAL</span> Anomalies: 0/10 <span class="divider">|</span> Event: Planned</div>
+                            </div>
+                        </div>
+
+                        <div class="tracker-row">
+                            <div class="chapter-header status-done">Chapter 2</div>
+                            <div class="chapter-data">
+                                <div class="data-line status-done"><span class="mode-tag">REGULAR</span> Anomalies: 10/10 <span class="divider">|</span> Event: &#10003;</div>
+                                <div class="data-line status-planned"><span class="mode-tag">BRUTAL</span> Anomalies: 0/10 <span class="divider">|</span> Event: Planned</div>
+                            </div>
+                        </div>
+
+                        <div class="tracker-row">
+                            <div class="chapter-header status-done">Chapter 3</div>
+                            <div class="chapter-data">
+                                <div class="data-line status-done"><span class="mode-tag">REGULAR</span> Anomalies: 10/10 <span class="divider">|</span> Event: &#10003;</div>
+                                <div class="data-line status-planned"><span class="mode-tag">BRUTAL</span> Anomalies: 0/10 <span class="divider">|</span> Event: Planned</div>
+                            </div>
+                        </div>
+
+                        <div class="tracker-row">
+                            <div class="chapter-header status-active">Chapter 4</div>
+                            <div class="chapter-data">
+                                <div class="data-line status-active"><span class="mode-tag">REGULAR</span> Anomalies: 10/10 <span class="divider">|</span> Event: <span class="pulse-text">In Progress</span></div>
+                                <div class="data-line status-planned"><span class="mode-tag">BRUTAL</span> Anomalies: 0/10 <span class="divider">|</span> Event: Planned</div>
+                            </div>
+                        </div>
+
+                        <div class="tracker-row">
+                            <div class="chapter-header status-planned">Chapter 5</div>
+                            <div class="chapter-data">
+                                <div class="data-line status-planned"><span class="mode-tag">REGULAR</span> Anomalies: 0/10 <span class="divider">|</span> Event: Planned</div>
+                                <div class="data-line status-planned"><span class="mode-tag">BRUTAL</span> Anomalies: 0/10 <span class="divider">|</span> Event: Planned</div>
+                            </div>
+                        </div>
+
+                        <div class="tracker-row">
+                            <div class="chapter-header status-planned">Chapter 6</div>
+                            <div class="chapter-data">
+                                <div class="data-line status-planned"><span class="mode-tag">REGULAR</span> Anomalies: 0/10 <span class="divider">|</span> Event: Planned</div>
+                                <div class="data-line status-planned"><span class="mode-tag">BRUTAL</span> Anomalies: 0/10 <span class="divider">|</span> Event: Planned</div>
+                            </div>
+                        </div>
+
+                        <div class="tracker-row">
+                            <div class="chapter-header status-planned">Chapter 7</div>
+                            <div class="chapter-data">
+                                <div class="data-line status-planned"><span class="mode-tag">REGULAR</span> Anomalies: 0/10 <span class="divider">|</span> Event: Planned</div>
+                                <div class="data-line status-planned"><span class="mode-tag">BRUTAL</span> Anomalies: 0/10 <span class="divider">|</span> Event: Planned</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="sidebar">
+                    <div class="stats-box">
+                        <p><strong>Status:</strong> In Development (See System Log For Details)</p>
+                        <p><strong>Release:</strong> 2026</p>
+                        <p><strong>Platform:</strong> PC (Steam)</p>
+                        <p><strong>Price:</strong> TBA</p>
+                        
+                        <hr class="sidebar-divider">
+                        
+                        <a href="https://store.steampowered.com/app/4172940/The_Haunted_Loop/" class="steam-wishlist-btn" target="_blank" style="display: block; text-align: center;">
+                            Wishlist on Steam
+                        </a>
+                    </div>
                 </div>
             </div>
+
+            <h2 class="section-heading">Gallery</h2>
+            <div class="gallery-grid">
+                <img src="../images/screen1.jpg" alt="Gameplay Screenshot 1" class="gallery-img">
+                <img src="../images/screen2.jpg" alt="Gameplay Screenshot 2" class="gallery-img">
+                <img src="../images/screen3.jpg" alt="Gameplay Screenshot 3" class="gallery-img">
+                <img src="../images/screen4.jpg" alt="Gameplay Screenshot 4" class="gallery-img">
+            </div>
+
         </div>
-
-        <h2>Gallery</h2>
-        <div class="gallery-grid">
-            <img src="../images/screen1.jpg" alt="Gameplay Screenshot 1" class="gallery-img">
-            <img src="../images/screen2.jpg" alt="Gameplay Screenshot 2" class="gallery-img">
-            <img src="../images/screen3.jpg" alt="Gameplay Screenshot 3" class="gallery-img">
-            <img src="../images/screen4.jpg" alt="Gameplay Screenshot 4" class="gallery-img">
-        </div>
-
-    </div>
-
-    <footer style="text-align: center; padding: 40px; color: #666; font-size: 0.8rem; font-family: var(--font-display);">
-        &copy; 2026 ByteClaw Games. All Rights Reserved.
-    </footer>
+    </main>
 
     <div id="lightbox-overlay">
         <a class="lightbox-nav nav-prev" onclick="changeSlide(-1)">&#10094;</a>
@@ -385,17 +195,28 @@
         }
 
         galleryImages.forEach((img, index) => {
-            img.addEventListener('click', () => {
-                openLightbox(index);
-            });
+            img.addEventListener('click', () => { openLightbox(index); });
         });
 
         lightboxOverlay.addEventListener('click', (e) => {
-            if (e.target === lightboxOverlay) {
-                closeLightbox();
-            }
+            if (e.target === lightboxOverlay) { closeLightbox(); }
         });
     </script>
-
+	
+	<footer class="main-footer">
+        <div class="footer-content">
+            <span class="footer-text">&copy; 2026 ByteClaw Games, LLC. All rights reserved.</span>
+            
+            <span class="footer-divider">|</span>
+            
+            <span class="footer-tagline">Digitally Primal&trade;</span>
+            
+            <span class="footer-divider">|</span>
+            
+            <button class="contact-reveal-btn" onclick="this.innerHTML='support@byteclawgames.com'; this.style.cursor='text'; this.style.color='#00ffff'; this.onclick=null;">
+                Contact Us
+            </button>
+        </div>
+    </footer>
 </body>
 </html>

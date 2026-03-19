@@ -8,180 +8,82 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --bg-color: #050505;
-            --text-main: #e0e0e0;
-            --accent-cyan: #00f3ff;
-            --accent-magenta: #ff0055;
-            --card-bg: #111;
-
-            /* FONT VARIABLES */
-            --font-display: 'Orbitron', sans-serif;
-            --font-body: 'Rajdhani', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: var(--font-body); /* Main Text */
-            font-size: 1.1rem;
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        /* NAVIGATION */
-        nav {
-            padding: 20px;
-            background: rgba(0,0,0,0.8);
-            border-bottom: 1px solid #222;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-brand {
-            font-family: var(--font-display);
-            font-weight: 700;
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-        }
-
-        .nav-back {
-            color: var(--accent-cyan);
-            font-family: var(--font-display);
-            text-decoration: none;
-            font-size: 0.9rem;
-            border: 1px solid var(--accent-cyan);
-            padding: 5px 15px;
-            border-radius: 4px;
-            transition: 0.3s;
-            text-transform: uppercase;
-        }
-
-        .nav-back:hover {
-            background: var(--accent-cyan);
-            color: #000;
-        }
-
-        /* CONTAINER */
-        .container {
-            max-width: 800px;
-            margin: 60px auto;
-            padding: 0 20px;
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-
-        @media (max-width: 768px) {
-            .container { flex-direction: column; text-align: center; }
-        }
-
-        /* AVATAR STYLES */
-        .avatar-frame {
-            position: relative;
-            width: 250px;
-            flex-shrink: 0;
-        }
-
-        .avatar-img {
-            width: 100%;
-            height: auto;
-            border-radius: 4px; 
-            border: 3px solid var(--accent-cyan);
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
-        }
-
-        /* BIO TEXT */
-        .bio-content h1 {
-            color: var(--accent-magenta);
-            font-family: var(--font-display);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 0;
-            font-weight: 900;
-        }
-
-        .bio-content h2 {
-            font-size: 1.2rem;
-            color: var(--accent-cyan);
-            margin-bottom: 20px;
-            font-family: var(--font-display);
-            letter-spacing: 1px;
-        }
-
-        .social-links {
-            margin-top: 30px;
-        }
-
-        .social-btn {
-            display: inline-block;
-            margin-right: 15px;
-            color: #fff;
-            font-family: var(--font-display);
-            text-decoration: none;
-            background: #222;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            transition: 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .social-btn:hover {
-            background: var(--accent-cyan);
-            color: #000;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 100px;
-            color: #666;
-            font-size: 0.8rem;
-            font-family: var(--font-display);
-        }
-    </style>
+    
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 
-    <nav>
-        <a href="../" class="nav-brand">BYTECLAW GAMES</a>
-        <a href="../" class="nav-back">&larr; Back to Studio</a>
-    </nav>
-
-    <div class="container">
-        <div class="avatar-frame">
-            <img src="../images/avatar.jpg" alt="Cougarkillz" class="avatar-img">
+    <header class="main-header">
+        <div class="brand-container">
+            <a href="../index.html" class="brand-link">
+                <img src="../images/ByteClawGamesLogo_NoText_256.png" alt="ByteClaw Games Logo" class="header-logo">
+                <span class="brand-text">ByteClaw Games</span>
+            </a>
         </div>
+        
+        <nav class="center-nav">
+            <a href="../haunted-loop/index.html" class="glitch-link">The Haunted Loop</a>
+            <a href="index.html" class="glitch-link" style="color: #00ffff; text-shadow: 0 0 8px rgba(0,255,255,0.5);">About The Studio</a>
+        </nav>
+        
+        <div class="header-spacer"></div>
+    </header>
 
-        <div class="bio-content">
-            <h1>Meet the Dev</h1>
-            <h2>Cougarkillz | Solo Developer</h2>
-            <p>
-                I am a self-taught software engineer with a passion for the unsettling. 
-                After seeing and playing many horror anomaly games, I decided it was time to put my skills to use.
-                ByteClaw Games is a one-person studio dedicated to creating multiplayer horror experiences 
-                that test your sanity and your friendships.
-            </p>
-            <p>
-                Currently building <strong>The Haunted Loop</strong> in Unreal Engine 5.
-            </p>
-
-            <div class="social-links">
-                <a href="https://twitter.com/ByteClawGames" target="_blank" class="social-btn">Twitter / X</a>
-                <a href="https://bsky.app/profile/byteclawgames.com" target="_blank" class="social-btn">BlueSky</a>
-                <a href="https://youtube.com/@ByteClawGames" target="_blank" class="social-btn">YouTube</a>
+    <main>
+        <section class="about-section">
+            
+            <div class="background-layer">
+                <img src="../images/ByteClawGamesLogo_NoText_2048.png" alt="" class="bg-ghost-logo">
+                <h1 class="bg-tagline">Digitally Primal<sup>&trade;</sup></h1>
             </div>
-        </div>
-    </div>
 
-    <footer>
-        &copy; 2026 ByteClaw Games. Digitally Primal.
+            <div class="tint-layer"></div>
+
+            <div class="foreground-layer about-container">
+                
+                <div class="avatar-frame">
+                    <img src="../images/avatar.jpg" alt="Cougarkillz" class="avatar-img">
+                </div>
+
+                <div class="bio-content">
+                    <h1>Meet the Dev</h1>
+                    <h2>Cougarkillz | Solo Developer</h2>
+                    <p>
+                        I am a self-taught software engineer with a passion for the unsettling. 
+                        After seeing and playing many horror anomaly games, I decided it was time to put my skills to use.
+                        ByteClaw Games is a one-person studio dedicated to creating multiplayer horror experiences 
+                        that test your sanity and your friendships.
+                    </p>
+                    <p>
+                        Currently building <strong>The Haunted Loop</strong> in Unreal Engine 5.
+                    </p>
+
+                    <div class="social-links">
+                        <a href="https://twitter.com/ByteClawGames" target="_blank" class="social-btn">Twitter / X</a>
+                        <a href="https://bsky.app/profile/byteclawgames.com" target="_blank" class="social-btn">BlueSky</a>
+                        <a href="https://youtube.com/@ByteClawGames" target="_blank" class="social-btn">YouTube</a>
+                        <a href="https://www.instagram.com/byteclawgames/" target="_blank" class="social-btn">Instagram</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <span class="footer-text">&copy; 2026 ByteClaw Games, LLC. All rights reserved.</span>
+            
+            <span class="footer-divider">|</span>
+            
+            <span class="footer-tagline">Digitally Primal&trade;</span>
+            
+            <span class="footer-divider">|</span>
+            
+            <button class="contact-reveal-btn" onclick="this.innerHTML='support@byteclawgames.com'; this.style.cursor='text'; this.style.color='#00ffff'; this.onclick=null;">
+                Contact Us
+            </button>
+        </div>
     </footer>
 
 </body>
