@@ -76,7 +76,7 @@
                             <div class="chapter-header status-done">Chapter 1</div>
                             <div class="chapter-data">
                                 <div class="data-line status-done"><span class="mode-tag">REGULAR</span> Anomalies: 10/10 <span class="divider">|</span> Event: &#10003;</div>
-                                <div class="data-line status-active"><span class="mode-tag">BRUTAL</span> <span class="pulse-text">Anomalies: 10/10</span> <span class="divider">|</span> Event: Planned</div>
+                                <div class="data-line status-done"><span class="mode-tag">BRUTAL</span> Anomalies: 10/10 <span class="divider">|</span> Event: Planned</div>
                             </div>
                         </div>
 
@@ -84,7 +84,7 @@
                             <div class="chapter-header status-done">Chapter 2</div>
                             <div class="chapter-data">
                                 <div class="data-line status-done"><span class="mode-tag">REGULAR</span> Anomalies: 10/10 <span class="divider">|</span> Event: &#10003;</div>
-                                <div class="data-line status-planned"><span class="mode-tag">BRUTAL</span> Anomalies: 0/10 <span class="divider">|</span> Event: Planned</div>
+                                <div class="data-line status-active"><span class="mode-tag">BRUTAL</span> <span class="pulse-text">Anomalies: 3/10</span> <span class="divider">|</span> Event: Planned</div>
                             </div>
                         </div>
 
@@ -106,117 +106,3 @@
 
                         <div class="tracker-row">
                             <div class="chapter-header status-done">Chapter 5</div>
-                            <div class="chapter-data">
-                                <div class="data-line status-done"><span class="mode-tag">REGULAR</span> Anomalies: 10/10 <span class="divider">|</span> Event: &#10003;</div>
-                                <div class="data-line status-planned"><span class="mode-tag">BRUTAL</span> Anomalies: 0/10 <span class="divider">|</span> Event: Planned</div>
-                            </div>
-                        </div>
-
-                        <div class="tracker-row">
-                            <div class="chapter-header status-done">Chapter 6</div>
-                            <div class="chapter-data">
-                                <div class="data-line status-done"><span class="mode-tag">REGULAR</span> Anomalies: 10/10 <span class="divider">|</span> Event: &#10003;</div>
-                                <div class="data-line status-planned"><span class="mode-tag">BRUTAL</span> Anomalies: 0/10 <span class="divider">|</span> Event: Planned</div>
-                            </div>
-                        </div>
-
-                        <div class="tracker-row">
-                            <div class="chapter-header status-active">Chapter 7</div>
-                            <div class="chapter-data">
-                                <div class="data-line status-done"><span class="mode-tag">REGULAR</span> Anomalies: 10/10 <span class="divider">|</span> Event: Planned</div>
-                                <div class="data-line status-planned"><span class="mode-tag">BRUTAL</span> Anomalies: 0/10 <span class="divider">|</span> Event: Planned</div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="sidebar">
-                    <div class="stats-box">
-                        <p><strong>Status:</strong> In Development (See System Log For Details)</p>
-                        <p><strong>Release:</strong> 2026</p>
-                        <p><strong>Platform:</strong> PC (Steam)</p>
-                        <p><strong>Price:</strong> TBA</p>
-                        
-                        <hr class="sidebar-divider">
-                        
-                        <a href="https://store.steampowered.com/app/4172940/The_Haunted_Loop/" class="steam-wishlist-btn" target="_blank" style="display: block; text-align: center;">
-                            Wishlist on Steam
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <h2 class="section-heading">Gallery</h2>
-            <div class="gallery-grid">
-                <img src="../images/screen1.jpg" alt="Gameplay Screenshot 1" class="gallery-img">
-                <img src="../images/screen2.jpg" alt="Gameplay Screenshot 2" class="gallery-img">
-                <img src="../images/screen3.jpg" alt="Gameplay Screenshot 3" class="gallery-img">
-                <img src="../images/screen4.jpg" alt="Gameplay Screenshot 4" class="gallery-img">
-            </div>
-
-        </div>
-    </main>
-
-    <div id="lightbox-overlay">
-        <a class="lightbox-nav nav-prev" onclick="changeSlide(-1)">&#10094;</a>
-        <a class="lightbox-nav nav-next" onclick="changeSlide(1)">&#10095;</a>
-        
-        <img id="lightbox-image" src="">
-        
-        <button id="lightbox-close-btn" onclick="closeLightbox()">CLOSE</button>
-    </div>
-
-    <script>
-        const galleryImages = document.querySelectorAll('.gallery-img');
-        const lightboxOverlay = document.getElementById('lightbox-overlay');
-        const lightboxImage = document.getElementById('lightbox-image');
-        
-        let currentIndex = 0; 
-
-        function openLightbox(index) {
-            currentIndex = index;
-            lightboxImage.src = galleryImages[currentIndex].src;
-            lightboxOverlay.style.display = 'flex';
-        }
-
-        function closeLightbox() {
-            lightboxOverlay.style.display = 'none';
-        }
-
-        function changeSlide(direction) {
-            currentIndex += direction;
-            if (currentIndex >= galleryImages.length) {
-                currentIndex = 0;
-            } else if (currentIndex < 0) {
-                currentIndex = galleryImages.length - 1;
-            }
-            lightboxImage.src = galleryImages[currentIndex].src;
-        }
-
-        galleryImages.forEach((img, index) => {
-            img.addEventListener('click', () => { openLightbox(index); });
-        });
-
-        lightboxOverlay.addEventListener('click', (e) => {
-            if (e.target === lightboxOverlay) { closeLightbox(); }
-        });
-    </script>
-    
-    <footer class="main-footer">
-        <div class="footer-content">
-            <span class="footer-text">&copy; 2026 ByteClaw Games, LLC. All rights reserved.</span>
-            
-            <span class="footer-divider">|</span>
-            
-            <span class="footer-tagline">Digitally Primal&trade;</span>
-            
-            <span class="footer-divider">|</span>
-            
-            <button class="contact-reveal-btn" onclick="this.innerHTML='support@byteclawgames.com'; this.style.cursor='text'; this.style.color='#00ffff'; this.onclick=null;">
-                Contact Us
-            </button>
-        </div>
-    </footer>
-</body>
-</html>
